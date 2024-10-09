@@ -19,6 +19,10 @@ app.use('/api/expenses', expenseRoutes);
 // Authentication routes
 app.use('/api/auth', authRoutes);
 
+app.get('/test', (req, res) => {
+    res.status(200).json({ message: "API is working!" });
+});
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 15000,})
     .then(() => console.log('MongoDB connected'))
